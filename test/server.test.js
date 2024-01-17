@@ -8,6 +8,6 @@ test("home route returns expected page", async () => {
   app.close();
 
   assert.equal(response.status, 200);
-  const body = await response.test();
+  const body = await response.text();
   assert.equal(body, "hello");
 });
