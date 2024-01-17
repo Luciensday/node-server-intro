@@ -28,3 +28,8 @@ server.get("/search", (request, response) => {
   const keyword = request.query.keyword;
   response.send(`<p>You searched for ${keyword}</p>`);
 });
+
+server.get("/users/:name", (request, response) => {
+  const name = request.params.name;
+  response.send(`<h1>Hello ${name}</h1>`);
+});
