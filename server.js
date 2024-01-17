@@ -22,8 +22,6 @@ server.get("/un-oh", (request, response) => {
   response.send("something went wrong");
 });
 
-module.exports = server;
-
 server.get("/search", (request, response) => {
   const keyword = request.query.keyword;
   response.send(`<p>You searched for ${keyword}</p>`);
@@ -37,3 +35,5 @@ server.get("/users/:name", (request, response) => {
 server.use((request, response) => {
   response.status(404).send("<h1>Not found</h1>");
 });
+
+module.exports = server;

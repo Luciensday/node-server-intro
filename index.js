@@ -1,8 +1,3 @@
-// const message = require("./message.js");
-
-// console.log(message.message1);
-// console.log(message.message2);
-
 const server = require("./server.js");
 
 const PORT = process.env.PORT || 3000;
