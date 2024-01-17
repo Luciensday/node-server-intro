@@ -33,3 +33,7 @@ server.get("/users/:name", (request, response) => {
   const name = request.params.name;
   response.send(`<h1>Hello ${name}</h1>`);
 });
+
+server.use((request, response) => {
+  response.status(404).send("<h1>Not found</h1>");
+});
