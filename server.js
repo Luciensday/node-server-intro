@@ -8,25 +8,26 @@ function logger(request, response, next) {
 
 server.use(logger);
 
-server.get("/", (request, response) => {
-  response.send("<h1>Hello</h1>");
-});
-
 // server.get("/", (request, response) => {
-//   const year = new Date().getFullYear();
-//   response.send(`
-//   <!doctype html>
-//   <html>
-//     <head>
-//       <meta charset="utf-8">
-//       <title>Home</title>
-//     </head>
-//     <body>
-//       <h1>Hello, it's ${year}</h1>
-//     </body>
-//   </html>
-//   `);
+//   response.send("<h1>Hello</h1>");
 // });
+
+server.get("/", (request, response) => {
+  // const year = new Date().getFullYear();
+  response.send(`
+  <!doctype html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Home</title>
+      <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+      <h1>Hello</h1>
+    </body>
+  </html>
+  `);
+});
 
 server.get("/un-oh", (request, response) => {
   response.status(500);
@@ -46,5 +47,8 @@ server.get("/users/:name", (request, response) => {
 server.use((request, response) => {
   response.status(404).send("<h1>Not found</h1>");
 });
+
+const staticHandler = express.static("public");
+server.use(staticHandler);
 
 module.exports = server;
